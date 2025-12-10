@@ -39,10 +39,9 @@ public class Main {
         //Task 3
         System.out.print("Общее количество сотрудников на всех заводах: " +
                 factories.stream()
-                        .map(Factory::getEmployees)
-                        .mapToInt(Integer::intValue)
+                        .mapToInt(Factory::getEmployees)
                         .sum());
-        System.out.println();
+        System.out.println("\n");
 
         //Task 4
         System.out.println("Завод с наибольшей годовой прибылью: " +
@@ -85,8 +84,7 @@ public class Main {
         System.out.print("Средняя прибыль заводов, основанных до 1950 года: " +
                 factories.stream()
                         .filter(factory -> factory.getYearFounded() < 1950)
-                        .map(Factory::getProfit)
-                        .mapToInt(Double::intValue)
+                        .mapToDouble(Factory::getProfit)
                         .average()
                         .orElse(0));
         System.out.println("\n");
